@@ -1,0 +1,874 @@
+/* --- CONFIGURAÇÃO DE FONTES PERSONALIZADAS --- */
+@font-face {
+    font-family: 'Minha Fonte Custom'; 
+    src: url('fonts/8e9860b6e62d6359-s.woff2') format('woff2');
+    font-weight: 400; 
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Minha Fonte Custom';
+    src: url('fonts/26a46d62cd723877-s.woff2') format('woff2');
+    font-weight: 700; 
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Minha Fonte Custom';
+    src: url('fonts/55c5f0601d81cf3-s.woff2') format('woff2');
+    font-weight: 800; 
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Minha Fonte Custom';
+    src: url('fonts/97e0cb1ae144a2a9-s.woff2') format('woff2');
+    font-weight: 600; 
+    font-style: normal;
+}
+
+
+/* --- GERAL E LAYOUT PRINCIPAL --- */
+body {
+    margin: 0;
+    font-family: 'Minha Fonte Custom', Arial, sans-serif; 
+    background: #f9fafb;
+    color: #333;
+    line-height: 1.6;
+    /* Flexbox no body para garantir que o container-total e o sidebar funcionem */
+    display: flex; 
+    flex-direction: row; 
+    min-height: 100vh;
+}
+
+.container-total {
+    position: relative;
+    /* Define o container-total para ocupar o restante horizontal após a sidebar */
+    flex-grow: 1;
+    width: 100%;
+    /* Usa flex para organizar o conteúdo principal e o footer em coluna */
+    display: flex;
+    flex-direction: column;
+    /* Define o overflow para evitar barras de rolagem indesejadas */
+    overflow: hidden; 
+}
+
+/* ================================================= */
+/* 1. SIDEBAR FIXA (MENU LATERAL ESQUERDO) - Desktop */
+/* ================================================= */
+.sidebar-erick {
+    width: 250px; 
+    background: #ffffff;
+    padding: 30px 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+/* Oculta o nome que está solto no sidebar (versão mobile) em Desktop */
+.sidebar-erick > .profile-nome-min:first-child {
+    display: none;
+}
+
+/* Elementos do Miniprofile na Sidebar */
+.profile-miniatura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.miniatura-img {
+    width: 100px; 
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+    box-shadow: 0 0 0 5px white, 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+.profile-info-min { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Nome que aparece na miniatura em Desktop */
+.profile-miniatura .profile-nome-min { 
+    display: block;
+    font-size: 1.3em;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.profile-tags-min {
+    color: #999;
+    font-size: 0.85em;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Menu de Navegação */
+.menu-navegacao {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.btn-sidebar {
+    background-color: transparent; 
+    color: #555; 
+    border: none;
+    padding: 10px 15px; 
+    font-size: 1.1em; 
+    cursor: pointer; 
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    text-align: left;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-sidebar:hover {
+    background-color: #f0f0f0;
+    color: #000000;
+}
+
+.btn-sidebar.active {
+    background-color: #000000;
+    color: white; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-sidebar.active:hover {
+    background-color: #333;
+}
+
+/* ================================================= */
+/* 2. CONTEÚDO PRINCIPAL (MÓDULOS)                   */
+/* ================================================= */
+.conteudo-principal {
+    /* CRUCIAL: Adiciona uma margem à esquerda para compensar a sidebar em DESKTOP */
+    margin-left: 250px; 
+    
+    flex-grow: 1; 
+    flex-shrink: 0;
+    padding: 60px 40px; 
+    box-sizing: border-box;
+    transition: margin-left 0.3s;
+    overflow-y: auto; 
+}
+
+.view {
+    padding-top: 0;
+    max-width: 900px; /* Mantém o conteúdo centralizado */
+    margin: 0 auto; 
+    text-align: center; /* Centraliza o título e os filtros */ 
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- ESTILOS DO CONTEÚDO (Quem Sou e Blog) --- */
+
+.titulo-artigos {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: 800;
+    font-size: 2.5em;
+    color: #000000;
+    text-align: center; /* Garante a centralização */
+}
+
+.filtros-posts {
+    margin-bottom: 30px;
+}
+
+.lista-filtros {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 30px; /* Centraliza a lista de filtros */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os botões */
+    gap: 10px;
+}
+
+.btn-filtro {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-filtro.ativo, .btn-filtro:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.grid-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    margin-top: 40px;
+}
+
+
+.post-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    text-align: left; 
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.post-cover-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.post-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-cover-img {
+    transform: scale(1.05);
+}
+
+.post-meta {
+    padding: 15px 15px 0;
+    text-align: left;
+}
+
+.post-tag {
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #007bff;
+    text-transform: uppercase;
+}
+
+.post-title {
+    margin: 5px 0 10px;
+    padding: 0 15px;
+    text-align: left;
+}
+
+.post-excerpt {
+    padding: 0 15px 15px;
+    text-align: left;
+}
+
+/* CORREÇÃO APLICADA: Garantir que o layout "Quem Sou" se organize corretamente */
+.quem-sou-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr; 
+    gap: 60px;
+    align-items: start; 
+    margin: 40px 0; 
+    padding: 20px 0;
+}
+
+.quem-sou-coluna-esquerda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky; 
+    top: 60px; 
+}
+
+.profile-image-wrapper-large {
+    position: relative;
+    width: 250px; 
+    height: 250px;
+    overflow: hidden; 
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px black; 
+    margin-bottom: 30px; 
+    transition: transform 0.5s
+}
+
+.profile-large-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.btn-ler-blog-main {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none;
+    white-space: nowrap;
+    display: block; 
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+}
+
+.btn-ler-blog-main:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+.quem-sou-coluna-direita {
+    padding-top: 10px; 
+}
+
+.profile-name-main {
+    font-size: 3.8em;
+    margin-top: 0;
+    margin-bottom: 5px;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.profile-subtitle-main {
+    color: #555;
+    font-size: 1.3em; 
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.botoes-contato-main {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 15px; 
+    margin-bottom: 30px; 
+}
+
+.btn-link-contato-main {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333; 
+    font-size: 1em;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: flex; 
+    align-items: center;
+    background-color: #ffffff; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.btn-link-contato-main i {
+    font-size: 1.1em; 
+    margin-right: 8px; 
+}
+
+.btn-link-contato-main:hover {
+    background: #f8f8f8;
+    border-color: #c0c0c0;
+    transform: translateY(-1px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.greeting-main {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.about-text-box-main {
+    background: #ffffff; 
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+    border: 1px solid #f0f0f0; 
+    line-height: 1.7;
+    color: #444;
+    font-size: 1.05em;
+    text-align: justify;
+}
+
+.about-text-box-main p:first-child {
+    font-weight: 600;
+    font-size: 1.05em;
+    margin-bottom: 15px;
+}
+
+
+/* ================================================= */
+/* 3. RODAPÉ INFERIOR (FOOTER)         */
+/* ================================================= */
+
+.site-footer {
+    /* O footer agora ocupa 100% da largura do container-total */
+    width: 100%; 
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+    padding: 30px 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: #000000;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-icon-link {
+    color: #555;
+    font-size: 1.3em;
+    transition: color 0.2s;
+}
+
+.footer-icon-link:hover {
+    color: #000000;
+}
+
+.footer-copyright {
+    color: #999;
+    font-size: 0.8em;
+    margin: 0;
+}
+
+
+/* ================================================= */
+/* RESPONSIVIDADE (TABLET/PEQUENO DESKTOP - abaixo de 992px) */
+/* ================================================= */
+@media (max-width: 992px) {
+    /* CRUCIAL: Remove a margem extra da sidebar no conteúdo principal */
+    .conteudo-principal {
+        margin-left: 0;
+    }
+    .conteudo-principal-post {
+        margin-left: 0; 
+        padding: 60px 40px; 
+    }
+    
+    /* Layout "Quem Sou" em 1 coluna (sem sticky) */
+    .quem-sou-coluna-esquerda {
+        position: relative;
+        top: 0;
+    }
+
+    .quem-sou-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        align-items: center;
+        text-align: center;
+        margin: 20px auto; 
+    }
+    
+    .quem-sou-coluna-direita {
+        text-align: left;
+    }
+    
+    .profile-name-main, .profile-subtitle-main {
+        text-align: center;
+    }
+
+    .botoes-contato-main {
+        justify-content: center;
+    }
+}
+
+
+/* ================================================= */
+/* RESPONSIVIDADE (MOBILE - abaixo de 768px)         */
+/* ================================================= */
+@media (max-width: 768px) {
+    /* LAYOUT PRINCIPAL E SIDEBAR */
+    body {
+        /* CRÍTICO: Anula o flexbox do desktop para que os elementos (Sidebar e Container) se empilhem */
+        display: block; 
+        /* CRÍTICO: Cria espaço no topo para o cabeçalho fixo não esconder o conteúdo */
+        padding-top: 70px;
+    }
+    
+    .container-total {
+        /* CRÍTICO: Remove o padding-top desnecessário (o body já o faz) e o overflow: hidden do desktop */
+        padding-top: 0; 
+        overflow: visible;
+        display: block; /* Garante que o container-total também volte a ser bloco */
+    }
+    
+    .sidebar-erick {
+        position: fixed; /* O cabeçalho agora é fixo no topo */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: auto; /* CRÍTICO: Não deve ter bottom: 0 */
+        height: 70px; 
+        width: 100%; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        background-color: #ffffff;
+        z-index: 1000; 
+
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 0 20px; 
+        box-sizing: border-box;
+    }
+    
+    /* Mostra o nome do Erick no topo (versão mobile) */
+    .sidebar-erick > .profile-nome-min:first-child {
+        display: block; 
+        font-size: 1.4em; 
+        margin: 0;
+        text-align: left; 
+        font-weight: 800;
+        color: #000;
+    }
+
+    /* Oculta a miniatura completa em mobile */
+    .profile-miniatura {
+        display: none; 
+    }
+
+    /* Menu de Navegação em Mobile (botões de "Quem Sou" e "Blog") */
+    .menu-navegacao {
+        flex-direction: row; 
+        gap: 15px; 
+        width: auto; 
+    }
+
+    .btn-sidebar {
+        padding: 8px 15px;
+        font-size: 0.95em; 
+        font-weight: 600;
+        text-align: center;
+        width: auto; 
+        color: #555;
+    }
+    
+    /* CONTEÚDO PRINCIPAL (ARTIGOS/QUEM SOU) */
+    .conteudo-principal {
+        /* CRÍTICO: Remove a margem lateral do desktop */
+        margin-left: 0;
+        padding: 30px 20px; 
+        width: 100%; 
+        flex-grow: 1; 
+    }
+    
+    /* Centralização em mobile dentro do view */
+    .view {
+        max-width: 100%; 
+        margin: 0 auto;
+    }
+
+    /* RODAPÉ em Mobile (precisa voltar a ser 100% da largura) */
+    .site-footer {
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    /* Ajustes de Mobile na seção "Quem Sou" */
+    .profile-image-wrapper-large {
+        width: 180px; 
+        height: 180px;
+        margin-bottom: 20px;
+    }
+    
+    .profile-name-main {
+        font-size: 2.5em;
+    }
+
+    .profile-subtitle-main {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+    }
+    
+    .botoes-contato-main {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .btn-link-contato-main {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+    
+    .about-text-box-main {
+        padding: 20px;
+        font-size: 0.95em;
+        text-align: left;
+    }
+
+    .btn-ler-blog-main {
+        margin-top: 20px;
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+    
+    .grid-posts {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .quem-sou-layout {
+        grid-template-columns: 1fr; /* Volta para uma única coluna */
+        gap: 30px;
+        text-align: center;
+    }
+
+    .quem-sou-coluna-esquerda {
+        align-items: center;
+    }
+    
+    .profile-name-main {
+        font-size: 2.2em; /* Mais adequado para mobile */
+    }
+
+    .profile-subtitle-main {
+        font-size: 1em;
+        margin-bottom: 20px; /* Reduz margem para aproximar botões */
+    }
+
+    .quem-sou-coluna-direita {
+        text-align: center;
+        align-items: center; /* Centraliza o conteúdo da direita em mobile */
+    }
+    
+    /* Botões de contato empilhados e centralizados em mobile */
+    .botoes-contato-main {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .btn-link-contato-main {
+        width: 100%;
+        max-width: 250px; /* Largura máxima para os botões empilhados */
+        justify-content: center;
+    }
+    
+    /* Botão "Ler o Blog" em mobile */
+    .btn-ler-blog-main {
+        max-width: 200px; /* Controla o tamanho do botão */
+        margin-top: 20px;
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    
+    /* Cards do Blog em coluna única para mobile */
+    .grid-posts {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* --- ESTILOS DE PÁGINA DE POSTAGEM (post.html) --- */
+
+/* 1. CONTAINER PRINCIPAL DO ARTIGO (Conteúdo + Sidebar Compensation) */
+.conteudo-principal-post {
+    padding: 40px 40px; 
+    box-sizing: border-box;
+    flex-grow: 1; 
+    /* CRUCIAL PARA CORRIGIR O DESALINHAMENTO EM DESKTOP */
+    margin-left: 250px; /* Compensa a largura da .sidebar-erick (250px) */
+}
+
+/* 2. CONTAINER CENTRALIZADO DO CONTEÚDO (Onde o texto está) */
+.post-container {
+    max-width: 1000px; 
+    margin: 0 auto; /* Continua centralizando */
+    background: white; 
+    padding: 30px 0;
+    align-items: center;
+}
+
+/* 3. Estilo do botão de voltar */
+.btn-voltar {
+    display: block; 
+    width: fit-content;
+    margin: 0 auto 40px auto; /* Centraliza o botão Voltar */
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.0em;
+}
+
+/* 4. Miniprofile do Autor */
+.author-mini-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza a foto e o nome */
+    margin-bottom: 20px;
+}
+
+.author-mini-img {
+    width: 150px; /* Tamanho da miniatura */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.author-mini-name {
+    font-size: 1.0em;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+/* 5. Cabeçalho (Título e Metadata) */
+.post-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    font-size: 1.0em;
+}
+
+.post-tag-detail {
+    font-size: 0.85em; 
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #38a169; /* Cor da tag */
+    display: block;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    padding: 20px;
+    font-size: 0.95em;
+}
+
+/* 6. Título Principal do Artigo */
+.post-title-detail {
+    font-size: 3.2em; /* Um bom tamanho para destaque */
+    font-weight: 800;
+    margin: 15px 0 10px;
+    line-height: 1.1;
+    /* Centraliza o título, limitando sua largura para legibilidade */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 7. Meta dados (Data e leitura) */
+.post-meta-detail {
+    color: #888;
+    font-size: 0.9em;
+    margin-bottom: 30px;
+}
+
+/* 8. Wrapper da imagem de capa */
+.post-cover-detail-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px; 
+    margin-bottom: 0px;
+}
+
+.post-cover-detail-img {
+    width: 100%;
+    left: auto;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;    
+
+}
+
+/* 9. Conteúdo do Texto */
+.post-content {
+    padding: 40px 0 20px; 
+    font-size: 1.15em; 
+    line-height: 1.8;
+    color: #333;
+    text-align: left; /* Alinhamento à esquerda para melhor leitura do corpo do texto */
+    padding: 50px;
+}
+
+.post-content p {
+    margin-bottom: 1.5em; 
+}
+
+/* --- RESPONSIVIDADE PARA POSTAGEM (MOBILE) --- */
+
+@media (max-width: 768px) {
+    /* CRÍTICO: Remove a margem lateral da postagem */
+    .conteudo-principal-post {
+        margin-left: 0; 
+        padding: 30px 20px;
+    }
+    
+    .post-title-detail {
+        font-size: 2em; 
+    }
+    
+    .post-content {
+        font-size: 1em;
+    }
+}
+
+.hidden {
+    /* CRÍTICO: Não usar visibility: hidden, pois ele mantém o espaço ocupado. */
+    display: none !important; 
+}

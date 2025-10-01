@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erick Ribeiro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/perfil-icon.png">
+
+</head>
+
+<body>
+
+    <div class="container-total">
+
+        <aside class="sidebar-erick" id="sidebar">
+
+            <p class="profile-nome-min">Erick Ribeiro.</p>
+
+            <div class="profile-miniatura mb-12">
+                <img src="images/perfil.png" alt="Foto de Perfil" class="miniatura-img">
+                <div class="profile-info-min">
+                    <p class="profile-nome-min">Erick Ribeiro.</p>
+                    <p class="profile-tags-min">tech, startups, filosofia, <br>innovation</p>
+                </div>
+            </div>
+
+            <nav class="menu-navegacao">
+                <button class="btn-sidebar active" id="btn-sidebar-quem-sou">
+                    Quem sou
+                </button>
+
+                <button class="btn-sidebar" id="btn-sidebar-blog">
+                    Blog
+                </button>
+            </nav>
+
+        </aside>
+
+        <main class="conteudo-principal" id="conteudo">
+
+            <div id="quem-sou-view" class="view">
+
+                <div class="quem-sou-layout">
+
+                    <div class="quem-sou-coluna-esquerda">
+                        <div class="profile-image-wrapper-large">
+                            <img src="images/perfil_completo.jpg" alt="Foto de Perfil Grande" class="profile-large-img">
+                        </div>
+                        <a href="#" class="btn-ler-blog-main" id="btn-ler-blog-quem-sou">
+                            Ler o Blog →
+                        </a>
+                    </div>
+
+                    <div class="quem-sou-coluna-direita">
+                        <h1 class="profile-name-main">Erick Ribeiro.</h1>
+                        <p class="profile-subtitle-main">innovation, tech and entrepreneurship</p>
+
+                        <div class="botoes-contato-main">
+                            <a href="https://github.com/ErickRibGo" target="_blank" class="btn-link-contato-main">
+                                <i class="fab fa-github"></i>&nbsp;GitHub
+                            </a>
+                            <a href="https://www.linkedin.com/in/erick-ribeiro-515992228/" target="_blank"
+                                class="btn-link-contato-main">
+                                <i class="fab fa-linkedin-in"></i>&nbsp;LinkedIn
+                            </a>
+                            <a href="mailto:erickribeirogon@gmail.com" target="_blank" class="btn-link-contato-main">
+                                <i class="far fa-envelope"></i>&nbsp;Contato
+                            </a>
+                        </div>
+
+                        <div class="about-text-box-main">
+                            <p class="greeting-main">Olá! 👋</p>
+                            <p>Me chamo <b>Erick Ribeiro.</b></p>
+                            <p>Sou um entusiasta de tecnologia, inovação e empreendedorismo. Ao longo dos últimos 3 anos
+                                venho construindo algumas coisas legais e criei esse blog para compartilhar o que
+                                aprendo e acho interessante, sem tema fixo.</p>
+                            <p>Se quiser bater um papo, minha caixa de entrada está sempre aberta. Será um prazer
+                                conversar com você!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="blog-view" class="view hidden">
+                <h2 class="titulo-artigos">Artigos</h2>
+
+                <div class="filtros-posts">
+                    <ul class="lista-filtros">
+                        <li><button class="btn-filtro ativo">Todos</button></li>
+                        <li><button class="btn-filtro">Startups</button></li>
+                        <li><button class="btn-filtro">Filosofia</button></li>
+                    </ul>
+                </div>
+
+                <div class="grid-posts">
+
+                    <a href="post-startups.html" class="post-card">
+                        <div class="post-cover-wrapper">
+                            <img src="images/startup.jpg" alt="Startup" class="post-cover-img">
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-tag tag-startup">Startups</span>
+                        </div>
+                        <h3 class="post-title">Minha estratégia para lançar 20 startups</h3>
+                        <p class="post-excerpt">Como estou idealizando e executando 20 soluções digitais em 2 anos.</p>
+                    </a>
+
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Quem sou</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="mailto:erickribeirogon@gmail.com" target="_blank" class="footer-link">Contato</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://github.com/ErickRibGo" target="_blank" class="footer-icon-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/erick-ribeiro-515992228/" target="_blank" class="footer-icon-link"
+                    aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://instagram.com/erickribgon" target="_blank" class="footer-icon-link"
+                    aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p class="footer-copyright">&copy; 2025 Erick Ribeiro. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
